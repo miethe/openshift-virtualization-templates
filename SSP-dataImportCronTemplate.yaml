@@ -1,0 +1,23 @@
+spec:
+  commonTemplates:
+    dataImportCronTemplates:
+      - metadata:
+          annotations:
+            cdi.kubevirt.io/storage.bind.immediate.requested: 'true'
+          name: OS-image-cron # everywhere with OS should be changed to the target os name
+        spec:
+          garbageCollect: Outdated
+          managedDataSource: OS
+          schedule: 41 8/12 * * *
+          template:
+            metadata: {}
+            spec:
+              source:
+                registry:
+                  imageStream: OS-guest
+                  pullMethod: node
+              storage:
+                resources:
+                  requests:
+                    storage: 30Gi
+            status: {}
