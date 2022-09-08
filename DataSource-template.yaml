@@ -12,3 +12,6 @@ metadata:
     app.kubernetes.io/part-of: hyperconverged-cluster
     app.kubernetes.io/version: 4.10.5
     cdi.kubevirt.io/dataImportCron: OS-image-cron
+spec:
+  source: {}
+  # pvc, url, or other with target image would be added here.
